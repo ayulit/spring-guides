@@ -1,6 +1,10 @@
 // my first plugin
 apply plugin: 'java'
 
+// for making .jar runnable!
+apply plugin: 'application'
+mainClassName = 'hello.HelloWorld'
+
 // adding a source for 3rd party libraries, e.g. Joda Time 
 repositories {
     // build will have to resolve its dependencies from Maven Central Repo
