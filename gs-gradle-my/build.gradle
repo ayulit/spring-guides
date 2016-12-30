@@ -1,0 +1,22 @@
+// my first plugin
+apply plugin: 'java'
+
+// adding a source for 3rd party libraries, e.g. Joda Time 
+repositories {
+    // build will have to resolve its dependencies from Maven Central Repo
+    mavenCentral()
+}
+
+// let’s declare some 3rd party libraries
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile "joda-time:joda-time:2.2"
+    testCompile "junit:junit:4.12"
+}
+
+jar {
+    baseName = 'gs-gradle'
+    version =  '0.1.0'
+}
