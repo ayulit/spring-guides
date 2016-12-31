@@ -12,17 +12,24 @@ public class WebServiceClient {
     private static final String MESSAGE =
             "<message xmlns=\"http://tempuri.org\">Hello World</message>";
 
+        // ...that's something important class 
         private final WebServiceTemplate webServiceTemplate = new WebServiceTemplate();
 
+        // ...it will be injected using bean's property (implicit URI)
         public void setDefaultUri(String defaultUri) {
             webServiceTemplate.setDefaultUri(defaultUri);
         }
 
         // send to the configured default URI
         public void simpleSendAndReceive() {
-            StreamSource source = new StreamSource(new StringReader(MESSAGE));
-            StreamResult result = new StreamResult(System.out);
-            webServiceTemplate.sendSourceAndReceiveToResult(source, result);
+            // ...some kind of XML data source
+        	StreamSource source = new StreamSource(new StringReader(MESSAGE));
+            
+            // ...received result will go to syso
+        	StreamResult result = new StreamResult(System.out);
+            
+        	// ...sends source XML message, receives smth and kicks it to result
+        	webServiceTemplate.sendSourceAndReceiveToResult(source, result);
         }
 
         // send to an explicit URI
